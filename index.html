@@ -9,8 +9,8 @@
     <meta name="robots" content="all">
     <meta name="rating" content="general">
     <meta name="distribution" content="global">
-    <meta name="author" content="Matheus Vidigal - (NyctibiusVII)">
-    <meta name="creator" content="Matheus Vidigal - (NyctibiusVII)">
+    <meta name="author" content="Denilson Santos - (NyctibiusVII)">
+    <meta name="creator" content="Denilson Santos - (NyctibiusVII)">
     <meta name="keywords" content="HTML, CSS, JavaScript, Financias, Organize seu dinheiro, Dinheiro, Rocketseat, MaratonaDiscover">
 
     <meta property="og:type" content="page">
@@ -51,12 +51,13 @@
 </head>
 
 <body>
+    
     <header>
-        <h1 style="color:white; margin:10px; " >Império D'água</h1>
-        <img src="./assets/logo.svg" alt="logo dev.finance$"/>
+        <h1 style="color: white; margin :10px; ">Império D'água</h1>
+         <!--<img src=" "logo dev.finance$"/>  -->
     </header>
 
-    <main class="container">
+    <main class="container" id="dados">
         <section id="balance">
             <h2 class="sr-only">Balanço</h2>
             <div class="card">
@@ -103,7 +104,7 @@
         </section>
     </main>
 
-    <div class="modal-overlay">
+    <div id="dados" class="modal-overlay"> 
         <div class="modal">
             <div id="form">
                 <h2>Nova Transação</h2>
@@ -144,7 +145,19 @@
         <img src="./assets/float-plus.svg" alt="Adicionar" width="16px">
     </a>
 
-    <footer><small>© 2022 - dev.finance$</small></footer>
+
+    <p>
+        <input type="button" value="IMPRIMIR" onclick="clickImprimir() " style="color:rgb(255, 255, 255); background-color: black; width: 200px; display: block; margin: auto;">
+    </p>
+
+
+
+    <footer><small>© 2022 - Império D'água</small></footer>
+
+    
+
+
+
 
     <script src="./scripts/index.js" type="text/javascript"></script>
 
@@ -171,5 +184,20 @@
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
     </script>
+
+         <!-- Sistema pdf -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js" 
+    integridade="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs"
+    crossorigin="anonymous"></script>
+
+    <script>
+        function clickImprimir(dados){
+        var doc = new jsPDF(dados)
+        doc.text(document.getElementById('dados').innerText, 10, 10)
+        doc.save('a4.pdf')
+        }
+    </script>
+
+
 </body>
 </html>
